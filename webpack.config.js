@@ -4,6 +4,7 @@
  * use ecmaScript 6 modules
  */
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     /**
@@ -44,7 +45,23 @@ module.exports = {
                 use: [
                     'style-loader', 'css-loader', 'sass-loader'
                 ]
+            },
+            {   
+                // add scss, babel transpiler
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/env'],
+                        plugins: ['transform-class-properties']
+                    }
+                }
             }
         ]
-    }
+    },
+    plugins: [
+        // terserPlugin is a minifier
+        new TerserPlugin()
+    ]
 }
