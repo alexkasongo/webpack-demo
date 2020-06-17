@@ -1,3 +1,10 @@
+/**
+ * generate absolute path using Node path package
+ * note we are importing using the old way: common js, because inside webopack configuration file we cannot
+ * use ecmaScript 6 modules
+ */
+const path = require('path');
+
 module.exports = {
     /**
      * entry-point: this file usually imports all other dependencies 
@@ -7,9 +14,37 @@ module.exports = {
     output: {
         // output: can specify name of the file which will be generated as a result of the webpack build
         // and directory name
+        // publicPath tells webpack where all the genereated files are located
         filename: 'bundle.js',
-        path: './dist'
+        path: path.resolve(__dirname, './dist'),
+        publicPath: 'dist/'
     },
     // to be defined
-    mode: 'none'
+    mode: 'none',
+    // tell webpack to import image
+    module: {
+        rules: [
+            {   
+                // check if file name contains either or
+                test: /\.(png|jpg)$/,
+                use: [
+                    'file-loader'
+                ]
+            },
+            {   
+                // add css
+                test: /\.css$/,
+                use: [
+                    'style-loader', 'css-loader'
+                ]
+            },
+            {   
+                // add scss, Webpack loads style from right to left
+                test: /\.scss$/,
+                use: [
+                    'style-loader', 'css-loader', 'sass-loader'
+                ]
+            }
+        ]
+    }
 }
