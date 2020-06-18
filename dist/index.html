@@ -1,9 +1,129 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Webpack App</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link href="styles.e04bec10308c74f6c1f0.css" rel="stylesheet"></head>
-  <body>
-  <script src="bundle.b34afe9c780d4a3721c5.js"></script></body>
-</html> 
+<head><link href="styles.e04bec10308c74f6c1f0.css" rel="stylesheet"></head>Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Module build failed (from ./node_modules/handlebars-loader/index.js):
+  Error: Cannot find module 'handlebars'
+  
+  - loader.js:636 Function.Module._resolveFilename
+    internal/modules/cjs/loader.js:636:15
+  
+  - loader.js:562 Function.Module._load
+    internal/modules/cjs/loader.js:562:25
+  
+  - loader.js:690 Module.require
+    internal/modules/cjs/loader.js:690:17
+  
+  - v8-compile-cache.js:161 require
+    [webpack-basics]/[v8-compile-cache]/v8-compile-cache.js:161:20
+  
+  - index.js:2 Object.<anonymous>
+    [webpack-basics]/[handlebars-loader]/index.js:2:18
+  
+  - v8-compile-cache.js:192 Module._compile
+    [webpack-basics]/[v8-compile-cache]/v8-compile-cache.js:192:30
+  
+  - loader.js:787 Object.Module._extensions..js
+    internal/modules/cjs/loader.js:787:10
+  
+  - loader.js:653 Module.load
+    internal/modules/cjs/loader.js:653:32
+  
+  - loader.js:593 tryModuleLoad
+    internal/modules/cjs/loader.js:593:12
+  
+  - loader.js:585 Function.Module._load
+    internal/modules/cjs/loader.js:585:3
+  
+  - loader.js:690 Module.require
+    internal/modules/cjs/loader.js:690:17
+  
+  - v8-compile-cache.js:161 require
+    [webpack-basics]/[v8-compile-cache]/v8-compile-cache.js:161:20
+  
+  - loadLoader.js:18 loadLoader
+    [webpack-basics]/[loader-runner]/lib/loadLoader.js:18:17
+  
+  - LoaderRunner.js:169 iteratePitchingLoaders
+    [webpack-basics]/[loader-runner]/lib/LoaderRunner.js:169:2
+  
+  - LoaderRunner.js:165 iteratePitchingLoaders
+    [webpack-basics]/[loader-runner]/lib/LoaderRunner.js:165:10
+  
+  - LoaderRunner.js:176 
+    [webpack-basics]/[loader-runner]/lib/LoaderRunner.js:176:18
+  
+  - loadLoader.js:47 loadLoader
+    [webpack-basics]/[loader-runner]/lib/loadLoader.js:47:3
+  
+  - LoaderRunner.js:169 iteratePitchingLoaders
+    [webpack-basics]/[loader-runner]/lib/LoaderRunner.js:169:2
+  
+  - LoaderRunner.js:365 runLoaders
+    [webpack-basics]/[loader-runner]/lib/LoaderRunner.js:365:2
+  
+  - NormalModule.js:295 NormalModule.doBuild
+    [webpack-basics]/[webpack]/lib/NormalModule.js:295:3
+  
+  - NormalModule.js:446 NormalModule.build
+    [webpack-basics]/[webpack]/lib/NormalModule.js:446:15
+  
+  - Compilation.js:739 Compilation.buildModule
+    [webpack-basics]/[webpack]/lib/Compilation.js:739:10
+  
+  - Compilation.js:1111 moduleFactory.create
+    [webpack-basics]/[webpack]/lib/Compilation.js:1111:12
+  
+  - NormalModuleFactory.js:409 factory
+    [webpack-basics]/[webpack]/lib/NormalModuleFactory.js:409:6
+  
+  - NormalModuleFactory.js:155 hooks.afterResolve.callAsync
+    [webpack-basics]/[webpack]/lib/NormalModuleFactory.js:155:13
+  
+  
+  - Hook.js:154 AsyncSeriesWaterfallHook.lazyCompileHook
+    [webpack-basics]/[tapable]/lib/Hook.js:154:20
+  
+  - NormalModuleFactory.js:138 resolver
+    [webpack-basics]/[webpack]/lib/NormalModuleFactory.js:138:29
+  
+  - NormalModuleFactory.js:346 process.nextTick
+    [webpack-basics]/[webpack]/lib/NormalModuleFactory.js:346:9
+  
+  
+  - Error: Cannot find module 'handlebars'
+  
+  - child-compiler.js:122 childCompiler.runAsChild
+    [webpack-basics]/[html-webpack-plugin]/lib/child-compiler.js:122:18
+  
+  - Compiler.js:343 compile
+    [webpack-basics]/[webpack]/lib/Compiler.js:343:11
+  
+  - Compiler.js:681 hooks.afterCompile.callAsync.err
+    [webpack-basics]/[webpack]/lib/Compiler.js:681:15
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [webpack-basics]/[tapable]/lib/Hook.js:154:20
+  
+  - Compiler.js:678 compilation.seal.err
+    [webpack-basics]/[webpack]/lib/Compiler.js:678:31
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [webpack-basics]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1423 hooks.optimizeAssets.callAsync.err
+    [webpack-basics]/[webpack]/lib/Compilation.js:1423:35
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [webpack-basics]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1414 hooks.optimizeChunkAssets.callAsync.err
+    [webpack-basics]/[webpack]/lib/Compilation.js:1414:32
+  
+  
+  - next_tick.js:68 process._tickCallback
+    internal/process/next_tick.js:68:7
+  
+</pre><script src="bundle.b34afe9c780d4a3721c5.js"></script>
