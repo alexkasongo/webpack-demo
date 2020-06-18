@@ -8,7 +8,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HandlebarsPlugin = require("handlebars-webpack-plugin");
+const template = require("./file.handlebars");
 
 module.exports = {
     /**
@@ -64,13 +64,10 @@ module.exports = {
                 }
             },
             {   
-                // add handlebar
-                // test: /\.hbs$/,
-                // use: [
-                //     'handlebars-loader'
-                // ]
-                test: /\.hbs$/, 
-                loader: "handlebars-loader" 
+                test: /\.hbs$/,
+                use: [
+                    'handlebars-loader'
+                ]
             }
         ]
     },
