@@ -24,8 +24,8 @@ module.exports = {
         // left empty for dynamic js filenames | contentHash
         publicPath: ''
     },
-    // to be defined
-    mode: 'none',
+    // mode is for built in optimizations | production or development
+    mode: 'production',
     // tell webpack to import image
     module: {
         rules: [
