@@ -7,6 +7,7 @@ const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     /**
@@ -20,7 +21,8 @@ module.exports = {
         // publicPath tells webpack where all the genereated files are located
         filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
-        publicPath: 'dist/'
+        // left empty for dynamic js filenames | contentHash
+        publicPath: ''
     },
     // to be defined
     mode: 'none',
@@ -70,11 +72,14 @@ module.exports = {
         }),
         // each time we run the build script, Webpack will clean the output folder
         new CleanWebpackPlugin({
-            cleanOnceBeforePatterns: [
+            cleanOnceBeforeBuildPatterns: [
                 '**/*',
                 // remove all the files togerther with subfolders inside the build folder 
                 path.join(process.cwd(), 'build/**/*')
             ]
+        }),
+        new HtmlWebpackPlugin({
+            title: 'Webpack Aleko'
         })
     ]
 }
