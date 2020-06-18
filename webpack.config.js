@@ -25,7 +25,7 @@ module.exports = {
         publicPath: ''
     },
     // mode is for built in optimizations | production or development
-    mode: 'production',
+    mode: 'development',
     // tell webpack to import image
     module: {
         rules: [
