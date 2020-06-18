@@ -6,6 +6,7 @@
 const path = require('path');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     /**
@@ -17,7 +18,7 @@ module.exports = {
         // output: can specify name of the file which will be generated as a result of the webpack build
         // and directory name
         // publicPath tells webpack where all the genereated files are located
-        filename: 'bundle.js',
+        filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         publicPath: 'dist/'
     },
@@ -65,7 +66,15 @@ module.exports = {
         // terserPlugin is a minifier
         new TerserPlugin(),
         new MiniCssExtractPlugin({
-            filename: 'styles.css'
+            filename: 'styles.[contenthash].css'
+        }),
+        // each time we run the build script, Webpack will clean the output folder
+        new CleanWebpackPlugin({
+            cleanOnceBeforePatterns: [
+                '**/*',
+                // remove all the files togerther with subfolders inside the build folder 
+                path.join(process.cwd(), 'build/**/*')
+            ]
         })
     ]
 }
