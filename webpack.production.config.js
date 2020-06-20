@@ -93,15 +93,19 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'hello-world.html',
             chunks: ['hello-world'],
+            meta: {
+                description: 'Hello World description'
+            },
             title: 'Webpack Aleko',
-            description: 'Some description',
             template: 'src/page-template.hbs'
         }),
         new HtmlWebpackPlugin({
             filename: 'kiwi.html',
             chunks: ['kiwi'],
+            meta: {
+                description: 'kiwi baby'
+            },
             title: 'Kiwi',
-            description: 'Kiwi',
             template: 'src/page-template.hbs'
         })
     ]
