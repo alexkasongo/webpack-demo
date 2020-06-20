@@ -24,6 +24,11 @@ module.exports = {
     },
     // mode is for built in optimizations | production or development
     mode: 'development',
+    devServer: {
+        contentBase: path.resolve(__dirname, './dist'),
+        index: 'index.html',
+        port: 7777
+    },
     // tell webpack to import image
     module: {
         rules: [
