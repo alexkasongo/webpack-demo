@@ -4,8 +4,6 @@
  * use ecmaScript 6 modules
  */
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -40,14 +38,14 @@ module.exports = {
                 // add css
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader'
+                    'style-loader', 'css-loader'
                 ]
             },
             {   
                 // add scss, Webpack loads style from right to left
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
+                    'style-loader', 'css-loader', 'sass-loader'
                 ]
             },
             {   
@@ -71,10 +69,6 @@ module.exports = {
         ]
     },
     plugins: [
-        // new TerserPlugin(), is included by default in production mode
-        new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css'
-        }),
         // each time we run the build script, Webpack will clean the output folder
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
