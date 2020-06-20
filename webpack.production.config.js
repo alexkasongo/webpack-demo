@@ -14,12 +14,16 @@ module.exports = {
      * entry-point: this file usually imports all other dependencies 
      * Webpack will start from this file running the build process
      */
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'kiwi': './src/kiwi.js',
+    },
     output: {
         // output: can specify name of the file which will be generated as a result of the webpack build
         // and directory name
         // publicPath tells webpack where all the genereated files are located
-        filename: 'bundle.[contenthash].js',
+        // [name] webpack takes name from entry configuration
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         // left empty for dynamic js filenames | contentHash
         publicPath: ''
@@ -72,9 +76,10 @@ module.exports = {
     },
     plugins: [
         // terserPlugin is a minifier included in production mode by default
-        // new TerserPlugin(),
+        // [name] custom name for each css file
+        // new TerserPlugin(),        
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css'
+            filename: '[name].[contenthash].css'
         }),
         // each time we run the build script, Webpack will clean the output folder
         new CleanWebpackPlugin({
@@ -84,10 +89,20 @@ module.exports = {
                 path.join(process.cwd(), 'build/**/*')
             ]
         }),
+        // chunk names are specified in entry point
         new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            chunks: ['hello-world'],
             title: 'Webpack Aleko',
-            template: 'src/index.hbs',
-            description: 'Some description'
+            description: 'Some description',
+            template: 'src/page-template.hbs'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'kiwi.html',
+            chunks: ['kiwi'],
+            title: 'Kiwi',
+            description: 'Kiwi',
+            template: 'src/page-template.hbs'
         })
     ]
 }
