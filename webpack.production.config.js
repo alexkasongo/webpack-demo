@@ -30,6 +30,11 @@ module.exports = {
     },
     // mode is for built in optimizations | production or development
     mode: 'production',
+    optimization: {
+      splitChunks: {
+          chunks: 'all'
+      }  
+    },
     // tell webpack to import image
     module: {
         rules: [
@@ -92,7 +97,7 @@ module.exports = {
         // chunk names are specified in entry point
         new HtmlWebpackPlugin({
             filename: 'hello-world.html',
-            chunks: ['hello-world'],
+            chunks: ['hello-world', 'vendors~hello-world~kiwi'],
             meta: {
                 description: 'Hello World description'
             },
@@ -101,7 +106,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'kiwi.html',
-            chunks: ['kiwi'],
+            chunks: ['kiwi', 'vendors~hello-world~kiwi'],
             meta: {
                 description: 'kiwi baby'
             },
