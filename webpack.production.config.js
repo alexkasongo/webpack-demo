@@ -32,7 +32,9 @@ module.exports = {
     mode: 'production',
     optimization: {
       splitChunks: {
-          chunks: 'all'
+          chunks: 'all',
+          minSize: 5000,
+          automaticNameDelimiter: '_'
       }  
     },
     // tell webpack to import image
