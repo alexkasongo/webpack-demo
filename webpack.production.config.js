@@ -4,7 +4,7 @@
  * use ecmaScript 6 modules
  */
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -25,7 +25,7 @@ module.exports = {
         publicPath: ''
     },
     // mode is for built in optimizations | production or development
-    mode: 'development',
+    mode: 'production',
     // tell webpack to import image
     module: {
         rules: [
@@ -71,8 +71,8 @@ module.exports = {
         ]
     },
     plugins: [
-        // terserPlugin is a minifier
-        new TerserPlugin(),
+        // terserPlugin is a minifier included in production mode by default
+        // new TerserPlugin(),
         new MiniCssExtractPlugin({
             filename: 'styles.[contenthash].css'
         }),
