@@ -51,14 +51,27 @@ module.exports = {
                 // add css
                 test: /\.css$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader'
+                    MiniCssExtractPlugin.loader, 'css-loader',
                 ]
             },
             {   
                 // add scss, Webpack loads style from right to left
                 test: /\.scss$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader', 
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                 return [
+                                     require('precss'),
+                                     require('autoprefixer')
+                                 ]
+                            }
+                        }
+                    },
+                    'sass-loader'
                 ]
             },
             {   

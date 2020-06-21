@@ -1,12 +1,12 @@
 /**
  * import dependencies - else they won't work
  */
-import './index.scss';
 
 import HelloWorldButton from './components/hello-world-button/hello-world-button.js'
 import Heading from './components/heading/heading.js'
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'; // webpack does not bundle bootstrap when used this way
+import './index.scss';
 // import React from 'react'; 
 
 const heading = new Heading();
