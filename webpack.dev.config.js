@@ -12,14 +12,13 @@ module.exports = {
      * entry-point: this file usually imports all other dependencies 
      * Webpack will start from this file running the build process
      */
-    entry: './src/index.js',
+    entry: {
+        'hello-world': './src/hello-world.js',
+        'kiwi': './src/kiwi.js',
+    },
     output: {
-        // output: can specify name of the file which will be generated as a result of the webpack build
-        // and directory name
-        // publicPath tells webpack where all the genereated files are located
-        // filename: 'bundle.[contenthash].js', no need for cashing in dev mode
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
-        // left empty for dynamic js filenames | contentHash
         publicPath: ''
     },
     // mode is for built in optimizations | production or development
@@ -83,9 +82,20 @@ module.exports = {
             ]
         }),
         new HtmlWebpackPlugin({
+            filename: 'hello-world.html',
+            meta: {
+                description: 'Hello World description'
+            },
             title: 'Webpack Aleko',
-            template: 'src/index.hbs',
-            description: 'Some description'
-        })
+            template: 'src/page-template.hbs'
+        }),
+        new HtmlWebpackPlugin({
+            filename: 'kiwi.html',
+            meta: {
+                description: 'Kiwi'
+            },
+            title: 'Webpack Aleko',
+            template: 'src/page-template.hbs'
+        }),
     ]
 }
