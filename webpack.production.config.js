@@ -26,7 +26,7 @@ module.exports = {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         // left empty for dynamic js filenames | contentHash
-        publicPath: ''
+        publicPath: '/static/'
     },
     // mode is for built in optimizations | production or development
     mode: 'production',

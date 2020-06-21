@@ -83,6 +83,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'hello-world.html',
+            chunks: ['hello-world'],
             meta: {
                 description: 'Hello World description'
             },
@@ -91,6 +92,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             filename: 'kiwi.html',
+            chunks: ['kiwi'],
             meta: {
                 description: 'Kiwi'
             },

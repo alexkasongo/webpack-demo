@@ -1,4 +1,5 @@
 import './heading.scss';
+import $ from 'jquery';
 
 class heading {
     render() {
