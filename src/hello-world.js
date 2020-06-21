@@ -1,6 +1,8 @@
 /**
  * import dependencies - else they won't work
  */
+import './index.scss';
+
 import HelloWorldButton from './components/hello-world-button/hello-world-button.js'
 import Heading from './components/heading/heading.js'
 // import React from 'react'; 
