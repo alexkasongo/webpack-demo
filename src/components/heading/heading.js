@@ -3,10 +3,10 @@ import $ from 'jquery';
 
 class heading {
     render() {
-        const h1 = document.createElement('h1');
-        const body = document.querySelector('body');
-        h1.innerHTML = 'Webpack is Awesome';
-        body.appendChild(h1);
+        const h1 = $('<h1>');
+        const body = $('body');
+        h1.text('Webpack is wow');
+        body.append(h1);
     }
 }
 
